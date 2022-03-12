@@ -1,0 +1,230 @@
+// Variables
+@import 'variables';
+//
+@mixin hackcssp($prop, $val) {
+    #{$prop}: $val;
+    -o-#{$prop}: $val;
+    -ms-#{$prop}: $val;
+    -moz-#{$prop}: $val;
+    -webkit-#{$prop}: $val;
+}
+
+@mixin hackcssv($prop, $val) {
+    #{$prop}: #{$val};
+    #{$prop}: -o-#{$val};
+    #{$prop}: -ms-#{$val};
+    #{$prop}: -moz-#{$val};
+    #{$prop}: -webkit-#{$val};
+}
+
+@for $i from 1 to 9 {
+    .fs-#{$i} {
+        font-size: 2.75rem - (.25*$i);
+    }
+}
+
+.nav-list {
+    border-bottom: 1px inset $grayo;
+    .nav-item {
+        padding: 7px 15px;
+        display: inline-block;
+        cursor: pointer;
+        &:hover {
+            font-weight: 700;
+            color: $red;
+            border-bottom: 4px solid $red;
+        }
+        &.active {
+            font-weight: 700;
+            color: $red;
+            border-bottom: 4px solid $red;
+        }
+    }
+}
+
+.bg-red {
+    background-color: $red !important;
+    border-color: $red !important;
+    color: white;
+    &:hover {
+        background-color: $red0 !important;
+        border-color: $red0 !important;
+        color: white;
+    }
+}
+
+.bt-0 {
+    bottom: 0;
+}
+
+.top-0 {
+    top: 0;
+}
+
+.left-0 {
+    left: 0;
+}
+
+.right-0 {
+    right: 0;
+}
+
+.card {
+    cursor: pointer;
+    &:hover {
+        box-shadow: 0 25px 29px rgba(63, 78, 100, 0.15);
+        border: solid 2px rgba(235, 235, 235, 1);
+    }
+    .card-time {
+        position: absolute;
+        bottom: 0;
+        @media only screen and (max-width: 767px) {
+            position: unset;
+        }
+    }
+    button {
+        @extend .bg-red;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        @media only screen and (max-width: 767px) {
+            position: unset;
+            width: 100%;
+            margin: 0 auto !important;
+        }
+    }
+    input {
+        text-align: center;
+        border: .5px solid $red;
+    }
+}
+
+.top_nav_menu_left {
+    li {
+        display: inline-block;
+        position: relative;
+        min-width: 50px;
+        padding-left: 20px;
+        text-align: center;
+        vertical-align: middle;
+        background: #1e1e27;
+        a {
+            display: block;
+            color: #b5aec4;
+            font-weight: 400;
+            height: 50px;
+            line-height: 50px;
+            font-size: 13px;
+        }
+    }
+}
+
+.list_search {
+    position: absolute;
+    width: 100%;
+    background: white;
+    padding-top: 0px !important;
+    left: 0px;
+    top: 110%;
+    display: none;
+    a {
+        padding: 7px 0 0 0;
+    }
+    &.active {
+        display: flex;
+    }
+}
+
+.list_cart {
+    img {
+        max-height: 80px;
+    }
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer-none {
+    cursor: auto !important;
+}
+
+#product_detail_img {
+    button {
+        opacity: 0;
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+#alert_all {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    width: 100%;
+    text-align: center;
+    transition: all .5s;
+    .alert{
+        display: inline-block;
+        background: rgba(255, 84, 84, 0.87);
+        color: white;
+        margin: 0px;
+        min-width: 250px;
+        cursor: pointer;
+        padding: 7px 0px;
+    }
+    &.show{
+        transition: all .5s;
+        top: 100%;
+        z-index: 999999;
+    }
+
+}
+
+.rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center
+}
+
+.rating>input {
+    display: none
+}
+
+.rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 6vw;
+    color: #FFD600;
+    cursor: pointer
+}
+
+.rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0
+}
+
+.rating>label:hover:before,
+.rating>label:hover~label:before {
+    opacity: 1 !important
+}
+
+.rating>input:checked~label:before {
+    opacity: 1
+}
+
+.rating:hover>input:checked~label:before {
+    opacity: 0.4
+}
+
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 14px
+    }
+
+    p {
+        font-size: 12px
+    }
+}
